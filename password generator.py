@@ -5,25 +5,26 @@ capital_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
+#prazdny list pro pridavani random prvku
 password_list = []
 
-user_letters = int(input('how many letters\n'))
+#uzivatelske inputy pro pocet prvku
+user_letters = int(input('how many letters\n')) 
 user_capital_letters = int(input('how many capitals\n'))
 user_numbers =  int(input('how many numbers\n'))
 user_symbols = int(input('how many symbols\n'))
 
-
+#random vyber poctku prvku dle uziv. inputu, k= argument, kolik choices ma byt, zde podle inputu, lze zadat konkretni cislo
 password_list.append(random.choices(letters, k=user_letters))
-password_list.append(random.choices(symbols, k=user_symbols))
-password_list.append(random.choices(numbers, k= user_numbers))
 password_list.append(random.choices(capital_letters, k= user_capital_letters))
+password_list.append(random.choices(numbers, k= user_symbols))
+password_list.append(random.choices(numbers, k= user_symbols))
 
-print(password_list)
+#slouceni nestovanych listu do jednoho
 password_list = sum(password_list, [])
-print(password_list)
-
+#zamichani listu
 generated_password = random.shuffle(password_list)
-
+#z listu udelany string
 generated_password = ''.join(password_list)
-
+#finalni print
 print(generated_password)
